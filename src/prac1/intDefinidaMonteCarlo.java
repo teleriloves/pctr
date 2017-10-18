@@ -1,18 +1,5 @@
-/*Alg Indefinida
- * 
- * Input: nPuntos
- * Out: superficie 
- * 
- * 1ro: leer nPuntos
- * 2do: nHits, numero de aciertos
- * 3ro: for(i <- 0, i<nPuntos, ++i)
- * 4to: coordx = random, coordy = random, uso de math
- * 5to: if(cy < f(cx)) nHits++;
- * 
- * s = nHits/nPuntos
- * 
- * 
- */
+package prac1;
+
 
 import java.util.Scanner;
 import java.lang.Math;
