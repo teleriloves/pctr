@@ -34,7 +34,28 @@ public class Estadistica {
 	
 	public static double varianza()
 	{
+		ArrayList<Double> aux = new ArrayList<Double>();
 		
+		double sumat = 0;
+		double media = media();
+		
+		for(Double d : sec)
+		{
+			aux.add(Math.pow((d.doubleValue()-media), 2));
+		}
+		
+		for(Double e : aux)
+		{
+			sumat+=e.doubleValue();
+		}
+		
+		return sumat/aux.size();
+			
+	}
+	
+	public static double desviacionTipica()
+	{
+		return Math.sqrt(varianza());
 	}
 	
 	public static void main(String[] args) {
