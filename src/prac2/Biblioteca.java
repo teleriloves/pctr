@@ -149,11 +149,11 @@ public class Biblioteca {
 		case 2: bajaPaciente(); break;
 		case 3: System.out.println("Introducir Nombre del paciente: ");
 		        String nombusqueda = s.nextLine(); 
-			    bajapaciente(String nombusqueda); break;
+			    bajaPaciente(nombusqueda); break;
 		case 4: mostrarPaciente(); break;
 		case 5: System.out.println("Introducir Nombre del paciente: ");
         		String nombrebusqueda = s.nextLine(); 
-				mostrarPaciente(String nombrebusqueda); break;
+				mostrarPaciente(nombrebusqueda); break;
 		default: System.out.println("Error");
 		}
 		
