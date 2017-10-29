@@ -11,6 +11,11 @@ public class Poligono {
 		this.poligono = poligono;
 	}
 	
+	public ArrayList<Punto> poligono()
+	{
+		return this.poligono;
+	}
+	
 	public int nLados()
 	{
 		return poligono.size();
