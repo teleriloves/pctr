@@ -1,8 +1,79 @@
 package prac3;
 
-public class Cajero {
+public class Cajero implements Runnable{
 	
-		private int Codigo_Cuenta;      
+	boolean tipoOper;
+	int numOper;
+	Cuenta_Banca cb;
+	
+	public Cajero(int numOper, boolean tipoOper)
+	{
+		this.numOper = numOper;
+		this.tipoOper = tipoOper;
+		cb = new Cuenta_Banca(0,1000);
+	}
+
+	@Override
+	public void run() 
+	{
+		if(tipoOper)	
+		{
+			for(int i = 0; i<numOper; ++i)
+				cb.Deposito(100);
+		}
+		else 
+		{	
+			for(int i = 0; i<numOper; ++i)
+				cb.Reintegro(100);
+		}	
+		
+		System.out.println(cb.Saldo());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		/*
+		 * 
+		 * @Override
+	public void run() 
+	{
+		if(c.ingreso())	
+		{
+			for(int i = 0; i<c.numOperaciones(); ++i)
+				c.Deposito(100);
+		}
+		else 
+		{	
+			for(int i = 0; i<c.numOperaciones(); ++i)
+				c.Reintegro(100);
+		}
+		
+	}
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * private int Codigo_Cuenta;      
 		private double Saldo_Cuenta; 
 		private boolean ingreso;
 		private int numOperaciones;
@@ -52,6 +123,8 @@ public class Cajero {
 		public int Codigo () 
 		{
 			return (Codigo_Cuenta);
-		}
+		}*/
+	
+	
 
 }

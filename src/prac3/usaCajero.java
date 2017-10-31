@@ -1,8 +1,35 @@
 package prac3;
 
-public class usaCajero implements Runnable{
+public class usaCajero {
 	
-	static Cajero c;
+	public static void main(String[] args) throws InterruptedException 
+	{
+		Thread usac1 = new Thread(new Cajero(1000, true));
+		Thread usac2 = new Thread(new Cajero(1000, false));
+		
+		usac1.start(); usac2.start();
+		usac2.join(); usac2.join();
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * static Cajero c;
 	
 	public usaCajero(Cajero c) 
 	{
@@ -18,7 +45,7 @@ public class usaCajero implements Runnable{
 				c.Deposito(100);
 		}
 		else 
-		{
+		{	
 			for(int i = 0; i<c.numOperaciones(); ++i)
 				c.Reintegro(100);
 		}
@@ -39,5 +66,6 @@ public class usaCajero implements Runnable{
 		System.out.println("Cajero 2: "+c.Saldo());
 		
 	}
+	 */
 
 }
