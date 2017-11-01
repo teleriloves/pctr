@@ -4,7 +4,7 @@ package prac3;
 public class Cuenta_Banca //Nombre de la clase
 {
   private int Codigo_Cuenta;      //Codigo Cuenta Cliente
-  private double Saldo_Cuenta;   //Saldo Actual
+  private static double  Saldo_Cuenta;   //Saldo Actual
 
   public Cuenta_Banca (){} //constructor nulo
   public Cuenta_Banca (int id, double disponible) //constructor  
