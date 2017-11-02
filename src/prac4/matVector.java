@@ -20,12 +20,11 @@ public class matVector {
 		Random r = new Random();
 		for(int i = 0; i<vec.length; ++i)
 		{
-			vec[i] = r.nextDouble();
+			vec[i] = r.nextDouble()*10;
 			
 			for(int j = 0; j<vec.length;++j)
 			{
-				mat[i][j] = r.nextDouble();
-				System.out.println(mat[i][j]);
+				mat[i][j] = r.nextDouble()*10;
 			}
 		}
 	}
@@ -39,25 +38,13 @@ public class matVector {
 			res[i] = 0;
 			for(int j = 0; j<vec.length;++j)
 			{
-				res[i]+=mat[i][j]*vec[i]; System.out.println(res[i]);
+				res[i]+=mat[i][j]*vec[i]; 
 			}
+			System.out.println("Res "+ res[i]);
 		}
 
 	}
-	
-	public String toString()
-	{
-		String resultado = "[";
-		for(int i = 0; i<res.length-2;++i)
-		{
-			resultado.concat(res[i]+", ");
-		}
-		resultado.concat(res[res.length-1]+"]");
 		
-		return resultado;
-		
-	}
-	
 	public static void main(String[] args) {
 		s = new Scanner(System.in);
 		
@@ -67,9 +54,6 @@ public class matVector {
 		mv.rellenaAuto();
 		
 		mv.producto();
-		
-		
-		System.out.println(mv.toString());
 	}
 
 }
