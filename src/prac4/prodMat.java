@@ -70,7 +70,10 @@ public class prodMat{
 		System.out.println("Dimension NxN; ¿N? ");
 		prodMat pm = new prodMat(s.nextInt());
 		
+		long crono = System.currentTimeMillis();
 		pm.rellenaAuto();
+		long finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en rellenar matrices: "+ (finCrono-crono) +" ms");
 		
 		System.out.println("Matriz 1: ");
 		pm.matrizPorPantalla(mat1);
@@ -78,7 +81,11 @@ public class prodMat{
 		System.out.println("Matriz 2: ");
 		pm.matrizPorPantalla(mat2);
 		
+		crono = System.currentTimeMillis();
 		pm.producto();
+		finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en realizar producto: "+ (finCrono-crono) +" ms");
+		
 		
 		System.out.println("Matriz Resultado: ");
 		pm.matrizPorPantalla(res);

@@ -62,6 +62,7 @@ public class matVectorConcurrente implements Runnable{
 			System.out.print(v[j]+" - ");
 			
 		}
+		System.out.println();
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -76,7 +77,14 @@ public class matVectorConcurrente implements Runnable{
 		res = new double[dim];
 		
 		matVectorConcurrente objRelleno = new matVectorConcurrente(0);
+		
+		long crono = System.currentTimeMillis();
 		objRelleno.rellenaAuto();
+		long finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en rellenar matrices: "+ (finCrono-crono) +" ms");
+		
+		
+	
 		
 		System.out.println("Matriz: ");
 		objRelleno.matrizPorPantalla(mat);
@@ -86,6 +94,8 @@ public class matVectorConcurrente implements Runnable{
 		
 		matVectorConcurrente[] mvc = new matVectorConcurrente[dim];
 		Thread[] hilos = new Thread[dim];
+		
+		crono = System.currentTimeMillis();
 		for(int i = 0; i<dim; ++i)
 		{
 			mvc[i] = new matVectorConcurrente(i);
@@ -97,6 +107,8 @@ public class matVectorConcurrente implements Runnable{
 		{
 			hilos[i].join();
 		}
+		finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en realizar producto: "+ (finCrono-crono) +" ms");
 		
 		System.out.println("Vector resultado: ");
 		objRelleno.vectorPorPantalla(res);

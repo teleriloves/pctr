@@ -12,7 +12,7 @@ public class matVector {
 	
 	public matVector(int dim) {
 		matVector.mat = new double[dim][dim];
-		matVector.vec = new double[dim];	
+		matVector.vec = new double[dim];
 	}
 	
 	
@@ -41,7 +41,7 @@ public class matVector {
 			{
 				res[i]+=mat[i][j]*vec[i]; 
 			}
-			System.out.println("Res "+ res[i]);
+			
 		}
 
 	}
@@ -66,6 +66,7 @@ public class matVector {
 			System.out.print(v[j]+" - ");
 			
 		}
+		System.out.println();
 	}
 		
 	public static void main(String[] args) {
@@ -74,14 +75,20 @@ public class matVector {
 		System.out.println("Dimension NxN; ¿N? ");
 		matVector mv = new matVector(s.nextInt());
 		
+		long crono = System.currentTimeMillis();
 		mv.rellenaAuto();
+		long finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en rellenar matrices: "+ (finCrono-crono) +" ms");
 		
 		System.out.println("Matriz: ");
 		mv.matrizPorPantalla(mat);
 		System.out.println("Vector: ");
 		mv.vectorPorPantalla(vec);
 		
+		crono = System.currentTimeMillis();
 		mv.producto();
+		finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en rellenar matrices: "+ (finCrono-crono) +" ms");
 		
 		System.out.println("Vector resultado: ");
 		mv.vectorPorPantalla(res);

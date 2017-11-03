@@ -69,7 +69,10 @@ public class prodMatConcurrente extends Thread{
 		res = new double[dim][dim];
 		
 		prodMatConcurrente objRelleno = new prodMatConcurrente(0);
+		long crono = System.currentTimeMillis();
 		objRelleno.rellenaAuto();
+		long finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en rellenar matrices: "+ (finCrono-crono) +" ms");
 		
 		System.out.println("Matriz 1: ");
 		objRelleno.matrizPorPantalla(mat1);
@@ -79,6 +82,8 @@ public class prodMatConcurrente extends Thread{
 		
 		prodMatConcurrente[] pmc = new prodMatConcurrente[dim];
 		
+		
+		crono = System.currentTimeMillis();
 		for(int i = 0; i<dim; ++i)
 		{
 			pmc[i] = new prodMatConcurrente(i);
@@ -90,8 +95,14 @@ public class prodMatConcurrente extends Thread{
 			pmc[i].join();
 		}
 		
+		finCrono = System.currentTimeMillis();
+		System.out.println("Tiempo en realizar producto: "+ (finCrono-crono) +" ms");
+		
+		
+		
 		System.out.println("Matriz Resultado: ");
 		objRelleno.matrizPorPantalla(res);
+		
 	}
 
 }
