@@ -23,7 +23,7 @@ public class matVectorConcurrente implements Runnable{
 		{
 			res[fil]+=mat[fil][j]*vec[j]; 
 		}
-		System.out.println("Res "+ res[fil]);
+
 		
 	}
 	
@@ -42,6 +42,28 @@ public class matVectorConcurrente implements Runnable{
 		}
 	}
 	
+	public void matrizPorPantalla(double[][] m)
+	{
+		for(int i = 0; i<m.length;++i)
+		{
+			for(int j = 0; j<m.length; ++j)
+			{
+				System.out.print(m[i][j]+" - ");
+				
+			}
+			System.out.println();
+		}
+	}
+	
+	public void vectorPorPantalla(double[] v)
+	{
+		for(int j = 0; j<v.length; ++j)
+		{
+			System.out.print(v[j]+" - ");
+			
+		}
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
 		
 		s = new Scanner(System.in);
@@ -52,6 +74,15 @@ public class matVectorConcurrente implements Runnable{
 		mat = new double[dim][dim];
 		vec = new double[dim];	
 		res = new double[dim];
+		
+		matVectorConcurrente objRelleno = new matVectorConcurrente(0);
+		objRelleno.rellenaAuto();
+		
+		System.out.println("Matriz: ");
+		objRelleno.matrizPorPantalla(mat);
+		
+		System.out.println("Vector: ");
+		objRelleno.vectorPorPantalla(vec);
 		
 		matVectorConcurrente[] mvc = new matVectorConcurrente[dim];
 		Thread[] hilos = new Thread[dim];
@@ -66,6 +97,9 @@ public class matVectorConcurrente implements Runnable{
 		{
 			hilos[i].join();
 		}
+		
+		System.out.println("Vector resultado: ");
+		objRelleno.vectorPorPantalla(res);
 				
 	}
 }

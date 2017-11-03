@@ -5,15 +5,16 @@ import java.util.Scanner;
 
 public class matVector {
 	
-	private double[][] mat;
-	private double[] vec;
+	private static double[][] mat;
+	private static double[] vec;
 	private static Scanner s;
-	private double[] res;
+	private static double[] res;
 	
 	public matVector(int dim) {
-		this.mat = new double[dim][dim];
-		this.vec = new double[dim];	
+		matVector.mat = new double[dim][dim];
+		matVector.vec = new double[dim];	
 	}
+	
 	
 	public void rellenaAuto()
 	{
@@ -44,6 +45,28 @@ public class matVector {
 		}
 
 	}
+	
+	public void matrizPorPantalla(double[][] m)
+	{
+		for(int i = 0; i<m.length;++i)
+		{
+			for(int j = 0; j<m.length; ++j)
+			{
+				System.out.print(m[i][j]+" - ");
+				
+			}
+			System.out.println();
+		}
+	}
+	
+	public void vectorPorPantalla(double[] v)
+	{
+		for(int j = 0; j<v.length; ++j)
+		{
+			System.out.print(v[j]+" - ");
+			
+		}
+	}
 		
 	public static void main(String[] args) {
 		s = new Scanner(System.in);
@@ -53,7 +76,15 @@ public class matVector {
 		
 		mv.rellenaAuto();
 		
+		System.out.println("Matriz: ");
+		mv.matrizPorPantalla(mat);
+		System.out.println("Vector: ");
+		mv.vectorPorPantalla(vec);
+		
 		mv.producto();
+		
+		System.out.println("Vector resultado: ");
+		mv.vectorPorPantalla(res);
 	}
 
 }
